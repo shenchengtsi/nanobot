@@ -148,7 +148,7 @@ class MemoryStore:
 
         try:
             tool_choice = _build_memory_tool_choice(provider)
-            response = await provider.chat(
+            response = await provider.chat_with_retry(
                 messages=[
                     {"role": "system", "content": "You are a memory consolidation agent. Call the save_memory tool with your consolidation of the conversation."},
                     {"role": "user", "content": prompt},
